@@ -87,7 +87,7 @@ define nvm::install (
 
   exec { "git clone ${nvm_repo} ${final_nvm_dir} for ${user}":
     command => "git clone ${nvm_repo} ${final_nvm_dir}",
-    cwd     => $home,
+    cwd     => '/tmp',
     user    => $user,
     unless  => "/usr/bin/test -d ${final_nvm_dir}/.git",
     require => $dependencies,
